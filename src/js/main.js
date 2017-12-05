@@ -81,6 +81,7 @@ var slider = {
         for(var i =0; i < movies.length ; i++){
 
             var movie = movies[i];
+            // console.log(movie.Genre.replace(/,/g, ' '));
 
 
             $(".slider").loadTemplate($("#slider-template"),{
@@ -92,6 +93,7 @@ var slider = {
                 released   : movie.Released,
                 runtime    : movie.Runtime,
                 genre      : movie.Genre,
+                genres     : movie.Genre.replace(/,/g, ' '),
                 director   : movie.Director,
                 writer     : movie.Writer,
                 actors     : movie.Actors,
@@ -119,16 +121,41 @@ var slider = {
 
                 slider.create();
                 feature.select();
+
             }
         }
 
     },
     create: function(){
-        $('.slider').slick({
+        var $carousel = $('.slider').slick({
             infinte: true,
             slidesToShow: 6
         });
+        $('#filter-movies').on('change', function(event){
+
+            var select = $(this).val();
+
+            if(select === 'All') {
+                $carousel.slick('slickUnfilter');
+            }else {
+                $carousel.slick('slickUnfilter');
+                $carousel.slick('slickFilter', '.'+select);
+            }
+
+        })
+
+    },
+    filter: function($caousel) {
+        var that = $('#filter-movies')
+        console.log(that);
+
+        // $('#filter-movies').on('change', function(event){
+        //     var select = $(this).val();
+        //     $carousel.slick('slickUnfilter');
+        //     $carousel.slick('slickFilter', select);
+        // })
     }
+
 }
 var feature = {
 
@@ -142,6 +169,7 @@ var feature = {
             $('.feature-data').append(mhtml);
 
         }
+        
     },
 
     select: function() {
@@ -159,7 +187,11 @@ var feature = {
                 if (hiddenTerms.indexOf(content) > -1) {
                     $('.feature-data').find('.feature-'+attr).html('');
                 }else {
-                    $('.feature-data').find('.feature-'+attr).html(content);
+                    if(attr === 'title') {
+                        $('.feature-title').html(content);
+                    }else {
+                        $('.feature-data').find('.feature-'+attr).html(content);
+                    }
                 }
 
             });
