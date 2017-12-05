@@ -1,7 +1,11 @@
 $( document ).ready(function() {
     json.init();
+    feature.init(meta_array)
+    slider.init(meta_array);
+
 
 })
+var meta_array = ['year', 'rated', 'released', 'runtime', 'genre', 'director', 'writer', 'actors', 'plot', 'language', 'country', 'awards', 'metascore', 'rating', 'votes', 'dvd', 'boxoffice', 'production'];
 
 var json = {
 
@@ -15,35 +19,150 @@ var json = {
 
             var movies_object = JSON5.parse(data);
 
-            slider.init(movies_object);
+            slider.populate(movies_object);
+            filter.genres(movies_object);
 
         })
+    }
+}
+var filter = {
+
+    genres: function(movies){
+
+        var genre_arr = [];
+        var uniqueGenre= [];
+        for(var i =0; i < movies.length ; i++){
+
+            var movie = movies[i];
+            var genres = movie.Genre.split(/\s*,\s*/);
+            genre_arr.push(genres);
+            var merged = [].concat.apply([], genre_arr);
+
+            $.each(merged, function(i, el){
+
+                if($.inArray(el, uniqueGenre) === -1) uniqueGenre.push(el);
+
+            });
+
+            uniqueGenre.sort();
+            if(i === movies.length - 1) {
+                filter.populate(uniqueGenre);
+
+            }
+        }
+    },
+    populate: function(uniqueGenre) {
+        for(var i=0; i < uniqueGenre.length; i++) {
+            var genre = uniqueGenre[i];
+            var mhtml = '<option value="' + genre + '">' + genre + '</option>';
+            $('#filter-movies').append(mhtml);
+        }
     }
 }
 
 var slider = {
 
+    init: function(meta) {
 
-    init: function(movies){
+        for(var i =0; i < meta.length ; i++){
+
+            var movie_meta = meta[i];
+            var mhtml = '<div class="movie-info" data="' + movie_meta + '" data-content="'+ movie_meta +'"></div>';
+            var template = $('#slider-template').html();
+
+            $('#slider-template .movie-data').append(mhtml);
+            // console.log(that);
+        }
+    },
+
+
+    populate: function(movies){
 
         for(var i =0; i < movies.length ; i++){
+
             var movie = movies[i];
+
 
             $(".slider").loadTemplate($("#slider-template"),{
 
-                poster : movie.Poster
+                poster     : movie.Poster,
+                title      : movie.Title,
+                year       : movie.Year,
+                rated      : movie.Rated,
+                released   : movie.Released,
+                runtime    : movie.Runtime,
+                genre      : movie.Genre,
+                director   : movie.Director,
+                writer     : movie.Writer,
+                actors     : movie.Actors,
+                plot       : movie.Plot,
+                language   : movie.Language,
+                country    : movie.Country,
+                awards     : movie.awards,
+                metascore  : movie.Metascore,
+                rating     : movie.Rating,
+                votes      : movie.Votes,
+                id         : movie.Id,
+                type       : movie.Type,
+                dvd        : movie.DVD,
+                boxoffice  : movie.BoxOffice,
+                production : movie.Production,
+                website    : movie.Website
+
 
             }, {
 
                 append: true
 
             });
+            if(i === movies.length - 1) {
+
+                slider.create();
+                feature.select();
+            }
         }
 
     },
     create: function(){
         $('.slider').slick({
             infinte: true,
+            slidesToShow: 6
         });
+    }
+}
+var feature = {
+
+    init: function(meta) {
+        for(var i =0; i < meta.length ; i++){
+
+            var movie_meta = meta[i];
+
+            var mhtml = '<div class="meta-title ' + movie_meta + '">' + movie_meta + ': <span class="meta-content feature-' + movie_meta + '"></span></div>'
+
+            $('.feature-data').append(mhtml);
+
+        }
+    },
+
+    select: function() {
+
+        var hiddenTerms = ['N/A'];
+
+        $('.slide').on('click', function(){
+            var img = $(this).find('.slide-poster').attr('src');
+
+            $('.feature-image').attr('src', img);
+            $(this).find('.movie-info').each(function(){
+                var attr = $(this).attr("data");
+
+                var content = $(this).html();
+                if (hiddenTerms.indexOf(content) > -1) {
+                    $('.feature-data').find('.feature-'+attr).html('');
+                }else {
+                    $('.feature-data').find('.feature-'+attr).html(content);
+                }
+
+            });
+        })
     }
 }

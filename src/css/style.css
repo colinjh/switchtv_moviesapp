@@ -1,0 +1,43 @@
+.feature-movie {
+    width: 100%;
+}
+.poster {
+    display: inline-block;
+    width: 35%;
+    padding-left: 5%;
+}
+.poster img {
+    max-height: 445px;
+}
+.content {
+    display: inline-block;
+    width: 59%;
+    vertical-align: top;
+}
+.slider-wrapper {
+    padding-left: 5%;
+}
+.slider {
+    max-width: 90%;
+
+}
+.meta-title {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.meta-content {
+    font-weight: normal;
+}
+.slide {
+    max-height: 100%;
+    width: 200px;
+    /*margin: 5px;*/
+}
+.slide img {
+    max-height: 280px;
+    max-width: 188px;
+    min-height: 280px
+}
+.feature-movie {
+    min-height: 450px;
+}

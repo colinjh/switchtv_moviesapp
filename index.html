@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -13,20 +12,55 @@
     <script type="text/javascript" src="src/js/json5.js"></script>
     <script type="text/javascript" src="src/js/main.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.8.0/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="src/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="src/css/style.css"/>
 
 
-    <title>Document</title>
-    <header name = "Access-Control-Allow-Origin" value = "*" />
+    <title>Movie Carousel</title>
 </head>
 <body>
-    <h1>Switch Movies</h1>
+    <div class="feature-movie">
+        <div class="poster">
+            <img class="feature-image" src=" " alt=""/>
+        </div>
+        <div class="content">
+            <div class="title"></div>
+            <div class="feature-data">
+            </div>
+        </div>
+    </div>
+    <div class="filter">
+        <select name="" id="filter-movies"></select>
+    </div>
     <div class="slider-wrapper">
         <div class="slider"></div>
     </div>
     <script type="text/template" id="slider-template">
-        <div class="slide">
-            <img data-src="poster" alt=""/>
+        <div class="slide" data-class="genre">
+            <img class="slide-poster" data-src="poster" alt=""/>
+            <div class="movie-data" style="display:none;">
+                <div class="slide-title movie-info" data="title" data-content="title"></div>
+                <div class="slide-year movie-info" data="year" data-content="year"></div>
+                <div class="slide-rated movie-info" data="rated" data-content="rated"></div>
+                <div class="movie-info" data="released" data-content="released"></div>data="" data-content=""
+                <div class="movie-info" data="runtime" data-content="runtime"></div>
+                <div class="movie-info" data="genre" data-content="genre"></div>
+                <div class="movie-info" data="director" data-content="director"></div>
+                <div class="movie-info" data="writer" data-content="writer"></div>
+                <div class="movie-info" data="actors" data-content="actors"></div>
+                <div class="movie-info" data="plot" data-content="plot"></div>
+                <div class="movie-info" data="language" data-content="language"></div>
+                <div class="movie-info" data="country" data-content="country"></div>
+                <div class="movie-info" data="awards" data-content="awards"></div>
+                <div class="movie-info" data="metascore" data-content="metascore"></div>
+                <div class="movie-info" data="rating" data-content="rating"></div>
+                <div class="movie-info" data="votes" data-content="votes"></div>
+                <div class="movie-info" data="dvd" data-content="dvd"></div>
+                <div class="movie-info" data="boxoffice" data-content="boxoffice"></div>
+                <div class="movie-info" data="" data-content=""></div>
+                <div class="movie-info" data="production" data-content="production"></div>
+            </div>
+
         </div>
     </script>
 </body>

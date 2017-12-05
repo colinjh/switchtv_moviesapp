@@ -1,0 +1,25 @@
+{
+  "name": "switch-movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "json5": "^0.5.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colinjh/switchtv_moviesapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colinjh/switchtv_moviesapp/issues"
+  },
+  "homepage": "https://github.com/colinjh/switchtv_moviesapp#readme"
+}
