@@ -26,6 +26,12 @@
 
     }
 }
+.desktop {
+    display: block;
+}
+.mobile {
+    display: none;
+}
 @media screen and (max-width: $break-large) {
     .feature-movie {
         .poster {
@@ -41,4 +47,26 @@
             overflow: scroll;
         }
     }
+}
+@media screen and (max-width: $break-small) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+    .mobile {
+        .feature-title {
+            font-size: 5vw;
+        }
+    }
+    .feature-movie {
+
+        .poster {
+            padding-top: 0;
+            padding-left: 50px;
+        }
+    }
+
+
 }

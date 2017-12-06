@@ -1,5 +1,6 @@
 .slider-wrapper {
     margin-top: 20px;
+    position: relative;
     .slider {
 
         .slide {
@@ -26,7 +27,7 @@
     position: absolute;
     width: 30px;
     height: 30px;
-    bottom: 160px;
+    bottom: 50%;
     &:before {
         background-image: url(/src/svg/right-chevron.svg);
         content: '';
@@ -37,22 +38,43 @@
 
 }
 .prev {
-    left: 20px;
+    left: -4%;
     &:before {
         transform:scaleX(-1);
     }
 }
 .next {
-    right: 20px;
+    right: -4%;
 }
 @media screen and (max-width: $break-large) {
-    .prev, .next {
-        bottom: 285px;
+
+}
+@media screen and (max-width: $break-small) {
+    .slider-wrapper {
+        margin-top: 20px;
+        margin-left: 10%;
+        .slider {
+
+            .slide {
+                max-height: 100%;
+                width: 250px;
+                img {
+                    max-height: 150px;
+                    max-width: 100px;
+                    min-width: 100px;
+                    min-height: 150px
+                }
+            }
+        }
     }
-    .next {
-        right: 50px;
+    #filter-movies {
+        float: left;
+        width: 100%;
+        option {
+            width: 100%;
+        }
     }
     .prev {
-        left: 50px;
+        left: -10%;
     }
 }

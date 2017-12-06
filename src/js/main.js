@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+document.addEventListener("DOMContentLoaded", function(){
     json.init();
     feature.init(meta_array)
     slider.init(meta_array);
@@ -148,20 +148,23 @@ var slider = {
                       settings: {
                         slidesToShow: 4,
 
+
                     }
                 },
                 {
-                    breakpoint: 770,
+                    breakpoint: 780,
                       settings: {
-                        slidesToShow: 3,
-
+                        slidesToShow: 2,
+                        centerMode: true,
+                        // centerPadding: '50px',
                     }
                 },
                 {
                     breakpoint: 520,
                       settings: {
                         slidesToShow: 2,
-
+                        // centerMode: true,
+                        // centerPadding: '30px',
                     }
                 }
             ]
