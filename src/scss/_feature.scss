@@ -1,0 +1,44 @@
+.feature-movie {
+    margin-bottom: 20px;
+    .poster {
+        max-height: 450px;
+        padding-top: 20px;
+        img {
+            max-height: 380px;
+        }
+    }
+    .feature-title {
+        font-size: 40px;
+    }
+    .content {
+        vertical-align: top;
+
+        .feature-data {
+            .meta-title {
+                font-size: 12px;
+                text-transform: capitalize;
+                font-weight: bold;
+                .meta-content {
+                    font-weight: normal;
+                }
+            }
+        }
+
+    }
+}
+@media screen and (max-width: $break-large) {
+    .feature-movie {
+        .poster {
+            img {
+                max-height: 250px;
+            }
+        }
+        .feature-title {
+            font-size: 20px;
+        }
+        .feature-data {
+            max-height: 250px;
+            overflow: scroll;
+        }
+    }
+}

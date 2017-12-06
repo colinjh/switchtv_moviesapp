@@ -5,6 +5,7 @@ $( document ).ready(function() {
 
 
 })
+
 var meta_array = ['year', 'rated', 'released', 'runtime', 'genre', 'director', 'writer', 'actors', 'plot', 'language', 'country', 'awards', 'metascore', 'rating', 'votes', 'dvd', 'boxoffice', 'production'];
 
 var json = {
@@ -121,6 +122,7 @@ var slider = {
 
                 slider.create();
                 feature.select();
+                $('.slider .slide:first-child').click();
 
             }
         }
@@ -129,7 +131,40 @@ var slider = {
     create: function(){
         var $carousel = $('.slider').slick({
             infinte: true,
-            slidesToShow: 6
+            slidesToShow: 6,
+            arrows: true,
+            prevArrow: $('.prev'),
+            nextArrow: $('.next'),
+            responsive: [
+                {
+                    breakpoint: 1200,
+                      settings: {
+                        slidesToShow: 5,
+
+                    }
+                },
+                {
+                    breakpoint: 1000,
+                      settings: {
+                        slidesToShow: 4,
+
+                    }
+                },
+                {
+                    breakpoint: 770,
+                      settings: {
+                        slidesToShow: 3,
+
+                    }
+                },
+                {
+                    breakpoint: 520,
+                      settings: {
+                        slidesToShow: 2,
+
+                    }
+                }
+            ]
         });
         $('#filter-movies').on('change', function(event){
 
@@ -144,16 +179,6 @@ var slider = {
 
         })
 
-    },
-    filter: function($caousel) {
-        var that = $('#filter-movies')
-        console.log(that);
-
-        // $('#filter-movies').on('change', function(event){
-        //     var select = $(this).val();
-        //     $carousel.slick('slickUnfilter');
-        //     $carousel.slick('slickFilter', select);
-        // })
     }
 
 }
@@ -169,7 +194,7 @@ var feature = {
             $('.feature-data').append(mhtml);
 
         }
-        
+
     },
 
     select: function() {

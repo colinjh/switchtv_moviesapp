@@ -1,3 +1,58 @@
-.slide {
-    background-color: red;
+.slider-wrapper {
+    margin-top: 20px;
+    .slider {
+
+        .slide {
+            max-height: 100%;
+            width: 200px;
+            img {
+                max-height: 260px;
+                max-width: 150px;
+                min-height: 260px
+            }
+        }
+    }
+}
+#filter-movies {
+    float: right;
+    width: 200px;
+    option {
+        width: 200px;
+    }
+}
+
+
+.prev, .next {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    bottom: 160px;
+    &:before {
+        background-image: url(/src/svg/right-chevron.svg);
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+    }
+
+}
+.prev {
+    left: 20px;
+    &:before {
+        transform:scaleX(-1);
+    }
+}
+.next {
+    right: 20px;
+}
+@media screen and (max-width: $break-large) {
+    .prev, .next {
+        bottom: 285px;
+    }
+    .next {
+        right: 50px;
+    }
+    .prev {
+        left: 50px;
+    }
 }

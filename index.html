@@ -6,11 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <script type="text/javascript" src="src/js/jquery.min.js"></script>
-    <script type="text/javascript" src="src/js/jquery.loadTemplate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
+    <script type="text/javascript" src="src/js/jquery.loadTemplate.min.js"></script>
     <script type="text/javascript" src="src/js/slick.min.js"></script>
     <script type="text/javascript" src="src/js/json5.js"></script>
     <script type="text/javascript" src="src/js/main.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="src/css/slick.css"/>
     <link rel="stylesheet" type="text/css" href="src/css/style.css"/>
@@ -19,27 +23,50 @@
     <title>Movie Carousel</title>
 </head>
 <body>
-    <div class="feature-movie">
-        <div class="poster">
-            <img class="feature-image" src=" " alt=""/>
-        </div>
-        <div class="content">
-            <div class="feature-title"></div>
-            <div class="feature-data">
+    <div class="container">
+        <div class="row feature-movie">
+            <div class="col">
+                <div class="poster">
+                    <img class="feature-image" src=" " alt=""/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="feature-title"></div>
+                    </div>
+                </div>
+
+
+                <div class="content">
+                    <div class="feature-data">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="filter">
-        <select name="" id="filter-movies">
-            <option value=" ">Select</option>
-            <option value="All">All</option>
-        </select>
-    </div>
-    <div class="slider-wrapper">
-        <div class="slider">
+        <div class="row">
+            <div class="align-self-end col-md-12 filter">
+                <select name="filter-movies" id="filter-movies">
+                    <option value=" ">Genre</option>
+                    <option value="All">All</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="slider">
+
+            </div>
+            <div class="prev">
+            </div>
+            <div class="next">
+            </div>
 
         </div>
+
+
     </div>
+
     <script type="text/template" id="slider-template">
         <div class="slide" data-class="genres">
             <img class="slide-poster" data-src="poster" alt=""/>
