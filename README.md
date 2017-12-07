@@ -3,6 +3,12 @@
 #### Overview
 
 -------
+#### Setup
+-----
+
+To application was run locally using a web service to serve the json file. This can be done with with MAMPP or XAMPP.
+
+-------
 #### Approach
 -----
 ##### JSON5
